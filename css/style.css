@@ -2046,8 +2046,9 @@ p {
   grid-template-rows: repeat(3, 8px);
   gap: 3px;
   vertical-align: middle;
-  margin: 0 12px;
+  margin: 0 18px;
   opacity: 0.9;
+  transform: rotate(-90deg);
 }
 
 .title-blocks span {
