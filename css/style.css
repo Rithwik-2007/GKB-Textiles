@@ -640,6 +640,7 @@ p {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Page Hero (smaller, for inner pages) */
@@ -1873,7 +1874,7 @@ p {
 
   .hero-buttons {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .grid-2,
