@@ -1136,6 +1136,41 @@ p {
   object-fit: cover;
 }
 
+.hero-split-image {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+  background: var(--cream);
+  padding: 10px;
+}
+
+.hero-split-image::before {
+  content: '';
+  position: absolute;
+  top: var(--stitch-inset);
+  right: var(--stitch-inset);
+  bottom: var(--stitch-inset);
+  left: var(--stitch-inset);
+  border: var(--stitch-width) dashed var(--gold-thread);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-split-image img {
+  width: 100%;
+  height: 480px;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hero-split-image img {
+    height: 320px;
+  }
+}
+
 .split-text h2 {
   margin-bottom: 1.5rem;
 }
@@ -1827,7 +1862,10 @@ p {
   }
 
   .hero {
+    height: auto;
     min-height: 70vh;
+    padding-top: calc(var(--nav-height) + 2rem);
+    padding-bottom: 3rem;
   }
 
   .hero-page {
