@@ -314,7 +314,7 @@ p {
   border-color: var(--terracotta);
 }
 
-/* Corner stitch accent marks â€” use transform to perfectly center each X on the dashed border corner */
+/* Corner stitch accent marks Ã¢â‚¬â€ use transform to perfectly center each X on the dashed border corner */
 .stitched-card .corner-stitch {
 position: absolute;
 width: 14px;
