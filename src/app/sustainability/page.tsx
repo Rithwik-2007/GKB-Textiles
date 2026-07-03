@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import ThreadDivider from '@/components/ThreadDivider';
 
 export const metadata: Metadata = {
@@ -9,12 +10,78 @@ export const metadata: Metadata = {
 };
 
 export default function SustainabilityPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://gkb-textiles.vercel.app"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Sustainability",
+        "item": "https://gkb-textiles.vercel.app/sustainability"
+      }
+    ]
+  };
+
+  const sustainabilitySchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does GKB Textiles use renewable energy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GKB Textiles operates a 100 kW on-site solar power plant that supplies approximately 22% of the facility's daily electricity needs, helping reduce greenhouse gas emissions and environmental footprint."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What eco-friendly technologies are used by GKB Textiles?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We operate 14 Picanol OmniPlus 800 Air Jet Looms, which use compressed air to insert weft yarns. This technology consumes less energy per meter, cuts noise pollution, and produces minimal waste compared to shuttle looms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does GKB Textiles use sustainable fibres?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we weave natural cotton fibres (compact, combed, and carded yarns). Woven cotton fabrics are biodegradable and environment-friendly."
+        }
+      }
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(sustainabilitySchema) }}
+      />
+
       {/* ===== HERO SECTION ===== */}
       <section className="hero hero-page hero-sustainability">
         <div className="hero-bg">
-          <img src="/images/sustainability-hero.png" alt="Green field with solar panels representing GKB Textiles sustainability commitment" />
+          <Image 
+            src="/images/sustainability-hero.png" 
+            alt="Green fields and solar panels powering the GKB Textiles sustainable manufacturing operations" 
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: 'cover', objectPosition: 'center 45%' }}
+          />
         </div>
         <div className="hero-overlay"></div>
         

@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import ThreadDivider from '@/components/ThreadDivider';
 import ContactForm from '@/components/ContactForm';
 
@@ -9,14 +10,45 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://gkb-textiles.vercel.app"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact Us",
+        "item": "https://gkb-textiles.vercel.app/contact"
+      }
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* ============================================= */}
       {/* PAGE HERO                                     */}
       {/* ============================================= */}
       <section className="hero hero-page">
         <div className="hero-bg">
-          <img src="/images/thread-spools.jpg" alt="White thread spools in a textile factory" />
+          <Image 
+            src="/images/thread-spools.jpg" 
+            alt="White thread spools loaded on creel at GKB Textiles factory in Erode, Tamil Nadu" 
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: 'cover', objectPosition: 'center 45%' }}
+          />
         </div>
         <div className="hero-overlay"></div>
         

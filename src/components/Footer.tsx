@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -8,7 +9,13 @@ export default function Footer() {
       <div className="container footer-content">
         <div className="footer-grid">
           <div className="footer-brand">
-            <img src="/images/logo.png" alt="GKB Textiles" />
+            <Image 
+              src="/images/logo.png" 
+              alt="GKB Textiles Logo" 
+              width={120} 
+              height={36} 
+              style={{ width: 'auto', height: 'auto' }}
+            />
             <p className="motto">"Precision Woven. Reliably Delivered."</p>
             <p>Premium Cotton Grey Fabrics manufactured using advanced Picanol Air Jet Loom technology since 2005.</p>
           </div>
@@ -24,11 +31,11 @@ export default function Footer() {
           <div className="footer-section">
             <h4>Products</h4>
             <ul>
-              <li><a href="#">Cotton Grey Fabrics</a></li>
-              <li><a href="#">Dobby Fabrics</a></li>
-              <li><a href="#">Double Cloth</a></li>
-              <li><a href="#">Seersucker</a></li>
-              <li><a href="#">Fancy Weaves</a></li>
+              <li><Link href="/#fabric-collection">Cotton Grey Fabrics</Link></li>
+              <li><Link href="/#fabric-collection">Dobby Fabrics</Link></li>
+              <li><Link href="/#fabric-collection">Double Cloth</Link></li>
+              <li><Link href="/#fabric-collection">Seersucker</Link></li>
+              <li><Link href="/#fabric-collection">Fancy Weaves</Link></li>
             </ul>
           </div>
           <div className="footer-section">
@@ -52,7 +59,7 @@ export default function Footer() {
         <div className="footer-bottom">
           <p>&copy; 2025 GKB Textiles. All rights reserved.</p>
           <div className="footer-social">
-            <a href="#" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/gkb-textiles" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
             <a href="mailto:gkbbalu@gmail.com" aria-label="Email">

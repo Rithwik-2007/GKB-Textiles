@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
@@ -75,12 +76,21 @@ export default function Navbar() {
     <nav className={`main-nav ${scrolled ? 'scrolled' : ''}`} id="main-nav" ref={navRef}>
       <div className="nav-container">
         <Link href="/" className="nav-logo" onClick={closeMobileMenu}>
-          <img src="/images/logo.png" alt="GKB Textiles" />
+          <Image 
+            src="/images/logo.png" 
+            alt="GKB Textiles Logo" 
+            width={120} 
+            height={36} 
+            priority
+            style={{ width: 'auto', height: 'auto' }}
+          />
         </Link>
         <button
           className={`nav-toggle ${mobileMenuOpen ? 'active' : ''}`}
           id="nav-toggle"
           aria-label="Toggle navigation"
+          aria-expanded={mobileMenuOpen}
+          aria-controls="nav-links"
           onClick={toggleMobileMenu}
         >
           <span></span>

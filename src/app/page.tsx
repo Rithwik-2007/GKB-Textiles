@@ -1,14 +1,64 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import type { Metadata } from 'next';
 import ThreadDivider from '@/components/ThreadDivider';
 
+export const metadata: Metadata = {
+  title: 'GKB Textiles | Premium Cotton Grey Fabric Manufacturer | Erode, Tamil Nadu',
+  description: 'GKB Textiles is a leading manufacturer & exporter of premium cotton grey fabrics, specializing in dobby fabrics, double cloth, and seersucker using advanced Picanol Air Jet looms.',
+};
+
 export default function HomePage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://gkb-textiles.vercel.app"
+      }
+    ]
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Cotton Grey Fabric Weaving",
+    "provider": {
+      "@id": "https://gkb-textiles.vercel.app/#organization"
+    },
+    "description": "High-quality woven fabric manufacturing including dobby patterns, plain/twill weaves, double cloth constructions, and seersucker fabrics using Picanol OmniPlus 800 Air Jet looms in Erode, Tamil Nadu.",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Global"
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+
       {/* ===== HERO SECTION ===== */}
       <section className="hero hero-home">
         <div className="hero-bg">
-          <img src="/images/hero-home-landscape.png" alt="Precision Woven Cotton Fabrics" />
+          <Image 
+            src="/images/hero-home-landscape.png" 
+            alt="Advanced weaving floor with precision Picanol Air Jet Looms at GKB Textiles" 
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: 'cover' }}
+          />
         </div>
         <div className="hero-overlay"></div>
 

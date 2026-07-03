@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import ThreadDivider from '@/components/ThreadDivider';
 
 export const metadata: Metadata = {
@@ -8,14 +9,80 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://gkb-textiles.vercel.app"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About Us",
+        "item": "https://gkb-textiles.vercel.app/about"
+      }
+    ]
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who founded GKB Textiles?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GKB Textiles was founded in Erode, Tamil Nadu, by Mr. G. Balakrishnan, who holds a B.E. in Mechanical Engineering and has over 20 years of textile manufacturing experience."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What type of looms does GKB Textiles use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GKB Textiles uses advanced imported Picanol OmniPlus 800 Air Jet and Dobby Looms to produce high-quality woven fabrics."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the manufacturing history of GKB Textiles?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GKB Textiles started operations in 2005 with Rapier Shuttleless Loom technology. In 2013, they imported 6 Picanol OmniPlus 800 Air Jet Looms, expanding with 3 more in 2015, and 3 imported Air Jet Dobby Looms in 2018."
+        }
+      }
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* ============================================= */}
       {/* PAGE HERO                                     */}
       {/* ============================================= */}
       <section className="hero hero-page">
         <div className="hero-bg">
-          <img src="/images/thread-spools.jpg" alt="White thread spools in GKB Textiles factory" />
+          <Image 
+            src="/images/thread-spools.jpg" 
+            alt="White thread spools loaded on creel at GKB Textiles factory Erode" 
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: 'cover', objectPosition: 'center 45%' }}
+          />
         </div>
         <div className="hero-overlay"></div>
         
@@ -49,8 +116,14 @@ export default function AboutPage() {
               <p>Our commitment to quality, timely delivery, technical excellence, and customer satisfaction has enabled us to build long-term relationships with clients across domestic and international markets.</p>
               <p>We are equipped to manufacture a wide range of woven fabrics with customized constructions, unique dobby patterns, and specialized fabric developments tailored to customer requirements.</p>
             </div>
-            <div className="split-image fade-in-right">
-              <img src="/images/about-heritage.png" alt="GKB Textiles factory interior with advanced looms" />
+            <div className="split-image fade-in-right" style={{ minHeight: '400px', position: 'relative' }}>
+              <Image 
+                src="/images/about-heritage.png" 
+                alt="GKB Textiles factory interior with advanced looms" 
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ objectFit: 'cover' }}
+              />
             </div>
           </div>
         </div>
