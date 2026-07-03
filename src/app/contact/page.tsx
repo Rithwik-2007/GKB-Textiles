@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import ThreadDivider from '@/components/ThreadDivider';
+import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact GKB Textiles | Business Enquiries & Export Orders | Erode',
@@ -61,41 +62,7 @@ export default function ContactPage() {
 
           <div className="grid-2">
             {/* LEFT: Contact Form */}
-            <div className="form-stitched fade-in-left">
-              <form action="#" method="POST">
-                <div className="form-group">
-                  <label htmlFor="full-name">Full Name</label>
-                  <input type="text" id="full-name" name="full_name" className="form-input" placeholder="Enter your full name" required />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email">Email Address</label>
-                  <input type="email" id="email" name="email" className="form-input" placeholder="Enter your email address" required />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="phone">Phone Number</label>
-                  <input type="tel" id="phone" name="phone" className="form-input" placeholder="Enter your phone number" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="subject">Subject</label>
-                  <select id="subject" name="subject" className="form-input" defaultValue="" required>
-                    <option value="" disabled>Select a subject</option>
-                    <option value="general">General Enquiry</option>
-                    <option value="fabric-development">Fabric Development</option>
-                    <option value="export">Export Enquiry</option>
-                    <option value="bulk-order">Bulk Order</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="message">Message</label>
-                  <textarea id="message" name="message" className="form-textarea" placeholder="Tell us about your requirements..." required></textarea>
-                </div>
-                <button type="submit" className="btn btn-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px', display: 'inline-block', verticalAlign: 'middle' }}><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>
-                  Send Message
-                </button>
-              </form>
-            </div>
+            <ContactForm />
 
             {/* RIGHT: Contact Info Card */}
             <div className="contact-info-card fade-in-right">
