@@ -6,7 +6,7 @@ import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact GKB Textiles | Business Enquiries & Export Orders | Erode',
-  description: 'Contact GKB Textiles for premium cotton fabrics, custom weaving, and export orders. Located in Erode, Tamil Nadu. Email: gkbbalu@gmail.com, Phone: +91-9443340467.',
+  description: 'Contact GKB Textiles for premium cotton fabrics, custom weaving, and export orders. Located in Erode, Tamil Nadu. Email: gkbbalu@gmail.com, Phone: +91-9080157410.',
 };
 
 export default function ContactPage() {
@@ -129,7 +129,18 @@ export default function ContactPage() {
                 </div>
                 <div className="info-text">
                   <h4>Phone</h4>
-                  <p>+91 - 9443 40467</p>
+                  <p>+91 - 90801 57410</p>
+                </div>
+              </div>
+
+              {/* GSTIN */}
+              <div className="contact-info-item">
+                <div className="info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <div className="info-text">
+                  <h4>GSTIN</h4>
+                  <p>33AHYPB5965C1Z7</p>
                 </div>
               </div>
 
@@ -147,7 +158,7 @@ export default function ContactPage() {
               {/* Map */}
               <div className="map-placeholder">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125323.40216705234!2d77.56372!3d11.341036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba96f46762f23cb%3A0xb493179e05e3e8!2sErode%2C%20Tamil%20Nadu%2C%20India!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  src="https://maps.google.com/maps?q=GKB%20Textiles%2C%2053%2F8%20Puduvalasu%20Main%20Road%2C%20Lakkapuram%2C%20Erode%2C%20Tamil%20Nadu%20638002&t=&z=16&ie=UTF8&iwloc=&output=embed"
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

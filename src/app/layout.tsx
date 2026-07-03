@@ -106,7 +106,7 @@ export default function RootLayout({
         "@id": "https://gkb-textiles.vercel.app/#localbusiness",
         "name": "GKB Textiles",
         "image": "https://gkb-textiles.vercel.app/images/hero-home-landscape.png",
-        "telephone": "+91-9443340467",
+        "telephone": "+91-9080157410",
         "email": "gkbbalu@gmail.com",
         "address": {
           "@type": "PostalAddress",
