@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <Image 
-              src="/images/logo.png" 
+              src="/images/logo-transparent.png" 
               alt="GKB Textiles Logo" 
               width={120} 
               height={36} 

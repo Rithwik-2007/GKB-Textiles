@@ -348,18 +348,67 @@ height: 100%;
 .thread-divider svg {
   width: 100%;
   max-width: 800px;
-  height: 30px;
+  height: 60px;
   color: var(--gold-thread);
 }
 
-.thread-divider .thread-path {
-  stroke-dasharray: 2000;
-  stroke-dashoffset: 2000;
-  transition: stroke-dashoffset 2s ease-in-out;
+.thread-divider .reveal-rect {
+  width: 0;
+  transition: width 2s ease-in-out;
 }
 
-.thread-divider.animated .thread-path {
-  stroke-dashoffset: 0;
+.thread-divider.animated .reveal-rect {
+  width: 1135px;
+}
+
+/* Moving Thread Wave Animation */
+.thread-waves-moving {
+  animation: thread-flow 1.5s linear infinite;
+}
+
+@keyframes thread-flow {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Air Jet Loom Nozzle Styles */
+.thread-divider .nozzle-group {
+  color: var(--gold-thread);
+}
+
+.thread-divider .air-pulse {
+  animation: air-blow 1.2s infinite linear;
+  transform-origin: 55px 15px;
+}
+
+.thread-divider .air-pulse.air-1 {
+  animation-delay: 0s;
+}
+
+.thread-divider .air-pulse.air-2 {
+  animation-delay: 0.4s;
+}
+
+.thread-divider .air-pulse.air-3 {
+  animation-delay: 0.8s;
+}
+
+@keyframes air-blow {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
 }
 
 .thread-divider .needle {
@@ -2027,8 +2076,13 @@ height: 100%;
     transform: none;
   }
 
-  .thread-divider .thread-path {
-    stroke-dashoffset: 0;
+  .thread-divider .reveal-rect {
+    width: 1135px !important;
+  }
+
+  .thread-waves-moving,
+  .thread-divider .air-pulse {
+    animation: none !important;
   }
 
   .hero-content > * {

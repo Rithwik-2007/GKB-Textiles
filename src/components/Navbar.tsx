@@ -77,7 +77,7 @@ export default function Navbar() {
       <div className="nav-container">
         <Link href="/" className="nav-logo" onClick={closeMobileMenu}>
           <Image 
-            src="/images/logo.png" 
+            src="/images/logo-transparent.png" 
             alt="GKB Textiles Logo" 
             width={120} 
             height={36} 
