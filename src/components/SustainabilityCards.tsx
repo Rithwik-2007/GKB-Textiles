@@ -157,7 +157,7 @@ export default function SustainabilityCards() {
     {
       title: "Air Jet Fibre Technology",
       description: "Our 14 Picanol OmniPlus 800 Air Jet Looms use compressed air instead of traditional shuttle mechanisms, resulting in lower energy consumption per metre of fabric, reduced noise pollution, and more efficient yarn utilization with minimal waste generation.",
-      imageUrl: "/images/sustainability-airjet.png",
+      imageUrl: "/images/sustainability-airjet.jpg",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M9.59 4.59A2 2 0 1 1 11 8H2" />
