@@ -236,13 +236,13 @@ export default function AboutPage() {
             <p className="section-subtitle">From humble beginnings to advanced manufacturing excellence.</p>
           </div>
 
-          <div className="timeline-vertical stagger-children" style={{ marginTop: '3.5rem' }}>
+          <div className="timeline-vertical stagger-children" style={{ marginTop: '5.5rem' }}>
             <div className="timeline-start-logo fade-in">
               <Image 
                 src="/images/logo-transparent.png" 
                 alt="GKB Textiles Logo" 
-                width={26} 
-                height={26} 
+                width={46} 
+                height={46} 
                 style={{ objectFit: 'contain' }}
               />
             </div>
