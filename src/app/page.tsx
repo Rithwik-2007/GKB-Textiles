@@ -213,44 +213,44 @@ export default function HomePage() {
 
           <div className="grid-4 stagger-children">
             {/* Dobby Fabrics */}
-            <div className="swatch-card fade-in">
+            <Link href="/products#dobby" className="swatch-card fade-in" style={{ textDecoration: 'none' }}>
               <div className="swatch-color" style={{ backgroundColor: '#D4C5A9' }}></div>
               <div className="swatch-info">
                 <h3>Dobby Fabrics</h3>
                 <p>Intricate geometric patterns woven on electronic dobby looms for rich surface texture and visual depth.</p>
                 <span className="swatch-tag">SPECIALTY</span>
               </div>
-            </div>
+            </Link>
 
             {/* Plain & Twill Weaves */}
-            <div className="swatch-card fade-in">
+            <Link href="/products#plain-twill" className="swatch-card fade-in" style={{ textDecoration: 'none' }}>
               <div className="swatch-color" style={{ backgroundColor: '#EDE8DC' }}></div>
               <div className="swatch-info">
                 <h3>Plain &amp; Twill Weaves</h3>
                 <p>Timeless fabric constructions offering durability and versatility for a wide range of end-use applications.</p>
                 <span className="swatch-tag">CLASSIC</span>
               </div>
-            </div>
+            </Link>
 
             {/* Double Cloth Fabrics */}
-            <div className="swatch-card fade-in">
+            <Link href="/products#double-cloth" className="swatch-card fade-in" style={{ textDecoration: 'none' }}>
               <div className="swatch-color" style={{ backgroundColor: '#9E9589' }}></div>
               <div className="swatch-info">
                 <h3>Double Cloth Fabrics</h3>
                 <p>Two-layered fabric constructions providing enhanced weight, warmth, and a luxurious hand feel.</p>
                 <span className="swatch-tag">PREMIUM</span>
               </div>
-            </div>
+            </Link>
 
             {/* Seersucker & Fancy */}
-            <div className="swatch-card fade-in">
+            <Link href="/products#seersucker" className="swatch-card fade-in" style={{ textDecoration: 'none' }}>
               <div className="swatch-color" style={{ backgroundColor: '#8BA4C4' }}></div>
               <div className="swatch-info">
                 <h3>Seersucker &amp; Fancy</h3>
                 <p>Distinctive puckered textures and creative weave innovations for designer and fashion-forward applications.</p>
                 <span className="swatch-tag">DESIGNER</span>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>

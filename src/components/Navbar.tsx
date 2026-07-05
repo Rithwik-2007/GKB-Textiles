@@ -109,6 +109,11 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
+            <Link href="/products" className={isLinkActive('/products') ? 'active' : ''} onClick={closeMobileMenu}>
+              Products
+            </Link>
+          </li>
+          <li>
             <Link href="/sustainability" className={isLinkActive('/sustainability') ? 'active' : ''} onClick={closeMobileMenu}>
               Sustainability
             </Link>

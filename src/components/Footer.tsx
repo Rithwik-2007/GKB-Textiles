@@ -24,6 +24,7 @@ export default function Footer() {
             <ul>
               <li><Link href="/">Home</Link></li>
               <li><Link href="/about">About Us</Link></li>
+              <li><Link href="/products">Products</Link></li>
               <li><Link href="/sustainability">Sustainability</Link></li>
               <li><Link href="/contact">Contact</Link></li>
             </ul>
@@ -31,11 +32,11 @@ export default function Footer() {
           <div className="footer-section">
             <h4>Products</h4>
             <ul>
-              <li><Link href="/#fabric-collection">Cotton Grey Fabrics</Link></li>
-              <li><Link href="/#fabric-collection">Dobby Fabrics</Link></li>
-              <li><Link href="/#fabric-collection">Double Cloth</Link></li>
-              <li><Link href="/#fabric-collection">Seersucker</Link></li>
-              <li><Link href="/#fabric-collection">Fancy Weaves</Link></li>
+              <li><Link href="/products">All Products</Link></li>
+              <li><Link href="/products#dobby">Dobby Fabrics</Link></li>
+              <li><Link href="/products#plain-twill">Plain &amp; Twill Weaves</Link></li>
+              <li><Link href="/products#double-cloth">Double Cloth Fabrics</Link></li>
+              <li><Link href="/products#seersucker">Seersucker &amp; Fancy</Link></li>
             </ul>
           </div>
           <div className="footer-section">
