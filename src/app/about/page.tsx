@@ -203,7 +203,7 @@ export default function AboutPage() {
                   alt="Mr. G. Balakrishnan - Founder of GKB Textiles"
                   fill
                   sizes="120px"
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'cover', transform: 'scale(1.15)' }}
                 />
               </div>
               <h3>Mr. G. Balakrishnan</h3>
