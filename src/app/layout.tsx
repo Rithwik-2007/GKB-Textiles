@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollObserver from '@/components/ScrollObserver';
+import FloatingContact from '@/components/FloatingContact';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -140,6 +141,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <ScrollObserver />
+        <FloatingContact />
       </body>
     </html>
   );
