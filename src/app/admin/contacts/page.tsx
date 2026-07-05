@@ -1,6 +1,6 @@
-"use client";
-
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import ThreadDivider from '@/components/ThreadDivider';
 
 interface Contact {
   id: number;
@@ -111,32 +111,52 @@ export default function AdminContactsPage() {
   };
 
   return (
-    <main className="fabric-bg" style={{ minHeight: 'calc(100vh - var(--nav-height))', padding: '3rem 0' }}>
-      <div className="container">
+    <>
+      {/* ============================================= */}
+      {/* PAGE HERO                                     */}
+      {/* ============================================= */}
+      <section className="hero hero-page">
+        <div className="hero-bg">
+          <Image 
+            src="/images/thread-spools.jpg" 
+            alt="Admin console background showing fabric weaving details" 
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: 'cover', objectPosition: 'center 45%' }}
+          />
+        </div>
+        <div className="hero-overlay"></div>
         
-        {/* Header */}
-        <div style={{ marginBottom: '2.5rem', borderBottom: '1px solid var(--indigo-pale)', paddingBottom: '1.5rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-            <div>
-              <span className="accent-text" style={{ color: 'var(--sage)', fontSize: '1.1rem' }}>Admin Console</span>
-              <h1 style={{ fontFamily: 'var(--font-heading)', color: 'var(--indigo-deep)', fontSize: '2.5rem', marginTop: '0.2rem' }}>Contact Database</h1>
-              <p style={{ color: 'var(--charcoal-light)', margin: '0.2rem 0 0' }}>
-                Secure, local database inquiries from the GKB Textiles Contact Us form.
-              </p>
-            </div>
+        <div className="hero-content center">
+          <span className="hero-tagline">Admin Console</span>
+          <h1>Contact Database</h1>
+          <p className="hero-description">Secure, local database inquiries from the GKB Textiles Contact Us form.</p>
+        </div>
+      </section>
+
+      {/* Thread Divider */}
+      <ThreadDivider />
+
+      <main style={{ minHeight: 'calc(100vh - var(--nav-height))', padding: '4rem 0', backgroundColor: 'var(--cream, #fbf9f6)' }}>
+        <div className="container">
+          
+          {/* Header Action Bar */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '2.5rem' }}>
+            <h2 style={{ fontFamily: 'var(--font-heading, serif)', color: 'var(--indigo-deep, #1e3a8a)', fontSize: '1.8rem', margin: 0 }}>
+              Inquiries Management
+            </h2>
             
             <div style={{ display: 'flex', gap: '0.8rem' }}>
               <button 
                 onClick={fetchContacts}
-                className="btn"
+                className="btn btn-outline-dark"
                 style={{ 
-                  backgroundColor: 'var(--white)', 
-                  border: '1px solid var(--indigo-light)', 
-                  color: 'var(--indigo-deep)',
                   padding: '10px 18px',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px'
+                  gap: '8px',
+                  height: '44px'
                 }}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 4 23 10 17 10" /><polyline points="1 20 1 14 7 14" /><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" /></svg>
@@ -151,6 +171,7 @@ export default function AdminContactsPage() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
+                  height: '44px',
                   opacity: filteredContacts.length === 0 ? 0.6 : 1,
                   cursor: filteredContacts.length === 0 ? 'not-allowed' : 'pointer'
                 }}
@@ -160,64 +181,64 @@ export default function AdminContactsPage() {
               </button>
             </div>
           </div>
-        </div>
 
-        {/* Warning Alert about Database Location */}
-        <div style={{
-          backgroundColor: '#fffbeb',
-          border: '1px solid #fef3c7',
-          borderRadius: '8px',
-          padding: '1rem',
-          marginBottom: '2rem',
-          display: 'flex',
-          gap: '12px',
-          alignItems: 'center',
-          color: '#b45309'
-        }}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" /></svg>
-          <div style={{ fontSize: '0.9rem' }}>
-            <strong>Dev Note:</strong> This database is connected directly to your hosted **Supabase** instance. Submissions are persistent. Ensure that you secure this admin dashboard route using authentication before deploying to a public production URL.
+          {/* Warning Alert about Database Location */}
+          <div style={{
+            backgroundColor: '#fffbeb',
+            border: '1px solid #fef3c7',
+            borderRadius: '6px',
+            padding: '1rem',
+            marginBottom: '2.5rem',
+            display: 'flex',
+            gap: '12px',
+            alignItems: 'center',
+            color: '#b45309',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.02)'
+          }}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" /></svg>
+            <div style={{ fontSize: '0.85rem', lineHeight: '1.4' }}>
+              <strong>Dev Note:</strong> This database is connected directly to your hosted **Supabase** instance. Submissions are persistent. Ensure that you secure this admin dashboard route using authentication before deploying to a public production URL.
+            </div>
           </div>
-        </div>
 
-        {/* Stats Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
-          <div className="form-stitched" style={{ padding: '1.2rem', textAlign: 'center', backgroundColor: 'var(--white)' }}>
-            <h4 style={{ color: 'var(--indigo-light)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.3rem' }}>Total Inquiries</h4>
-            <span style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--indigo-deep)', fontFamily: 'var(--font-heading)' }}>{totalCount}</span>
+          {/* Stats Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
+            <div style={{ padding: '1.5rem', textAlign: 'center', backgroundColor: 'var(--white, #ffffff)', borderRadius: '6px', border: '1px solid var(--indigo-pale, #e2e8f0)', boxShadow: '0 2px 8px rgba(0,0,0,0.02)' }}>
+              <h4 style={{ color: 'var(--indigo-light, #94a3b8)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.5rem' }}>Total Inquiries</h4>
+              <span style={{ fontSize: '2.2rem', fontWeight: 'bold', color: 'var(--indigo-deep, #1e3a8a)', fontFamily: 'var(--font-heading, serif)' }}>{totalCount}</span>
+            </div>
+            <div style={{ padding: '1.5rem', textAlign: 'center', backgroundColor: 'var(--white, #ffffff)', borderRadius: '6px', border: '1px solid var(--indigo-pale, #e2e8f0)', boxShadow: '0 2px 8px rgba(0,0,0,0.02)' }}>
+              <h4 style={{ color: 'var(--indigo-light, #94a3b8)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.5rem' }}>Export Orders</h4>
+              <span style={{ fontSize: '2.2rem', fontWeight: 'bold', color: 'var(--indigo-deep, #1e3a8a)', fontFamily: 'var(--font-heading, serif)' }}>{exportCount}</span>
+            </div>
+            <div style={{ padding: '1.5rem', textAlign: 'center', backgroundColor: 'var(--white, #ffffff)', borderRadius: '6px', border: '1px solid var(--indigo-pale, #e2e8f0)', boxShadow: '0 2px 8px rgba(0,0,0,0.02)' }}>
+              <h4 style={{ color: 'var(--indigo-light, #94a3b8)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.5rem' }}>Bulk Inquiries</h4>
+              <span style={{ fontSize: '2.2rem', fontWeight: 'bold', color: 'var(--indigo-deep, #1e3a8a)', fontFamily: 'var(--font-heading, serif)' }}>{bulkCount}</span>
+            </div>
+            <div style={{ padding: '1.5rem', textAlign: 'center', backgroundColor: 'var(--white, #ffffff)', borderRadius: '6px', border: '1px solid var(--indigo-pale, #e2e8f0)', boxShadow: '0 2px 8px rgba(0,0,0,0.02)' }}>
+              <h4 style={{ color: 'var(--indigo-light, #94a3b8)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.5rem' }}>Fabric Dev</h4>
+              <span style={{ fontSize: '2.2rem', fontWeight: 'bold', color: 'var(--indigo-deep, #1e3a8a)', fontFamily: 'var(--font-heading, serif)' }}>{devCount}</span>
+            </div>
           </div>
-          <div className="form-stitched" style={{ padding: '1.2rem', textAlign: 'center', backgroundColor: 'var(--white)' }}>
-            <h4 style={{ color: 'var(--indigo-light)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.3rem' }}>Export Orders</h4>
-            <span style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--indigo-deep)', fontFamily: 'var(--font-heading)' }}>{exportCount}</span>
-          </div>
-          <div className="form-stitched" style={{ padding: '1.2rem', textAlign: 'center', backgroundColor: 'var(--white)' }}>
-            <h4 style={{ color: 'var(--indigo-light)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.3rem' }}>Bulk Inquiries</h4>
-            <span style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--indigo-deep)', fontFamily: 'var(--font-heading)' }}>{bulkCount}</span>
-          </div>
-          <div className="form-stitched" style={{ padding: '1.2rem', textAlign: 'center', backgroundColor: 'var(--white)' }}>
-            <h4 style={{ color: 'var(--indigo-light)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.3rem' }}>Fabric Dev</h4>
-            <span style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--indigo-deep)', fontFamily: 'var(--font-heading)' }}>{devCount}</span>
-          </div>
-        </div>
 
-        {/* Search & Filter Bar */}
-        <div className="form-stitched" style={{ padding: '1.5rem', backgroundColor: 'var(--white)', marginBottom: '2rem' }}>
-          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-            <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              <label style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--indigo-deep)' }}>Search Inquiries</label>
-              <div style={{ position: 'relative' }}>
-                <input 
-                  type="text" 
-                  placeholder="Search name, email, phone, or message contents..." 
-                  className="form-input"
-                  style={{ width: '100%', paddingLeft: '40px', height: '48px', border: '1px solid var(--indigo-pale)', borderRadius: '4px' }}
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                <svg 
-                  style={{ position: 'absolute', left: '14px', top: '16px', color: 'var(--indigo-light)' }}
-                  xmlns="http://www.w3.org/2000/svg" 
-                  width="16" 
+          {/* Search & Filter Bar */}
+          <div style={{ padding: '1.8rem', backgroundColor: 'var(--white, #ffffff)', borderRadius: '6px', border: '1px solid var(--indigo-pale, #e2e8f0)', marginBottom: '2rem', boxShadow: '0 2px 8px rgba(0,0,0,0.02)' }}>
+            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+              <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <label style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--indigo-deep)' }}>Search Inquiries</label>
+                <div style={{ position: 'relative' }}>
+                  <input 
+                    type="text" 
+                    placeholder="Search name, email, phone, or message contents..." 
+                    className="form-input"
+                    style={{ width: '100%', paddingLeft: '40px', height: '48px', border: '1px solid var(--indigo-pale)', borderRadius: '4px' }}
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+                  <svg 
+                    style={{ position: 'absolute', left: '14px', top: '16px', color: 'var(--indigo-light)' }}
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="16" 
                   height="16" 
                   viewBox="0 0 24 24" 
                   fill="none" 
@@ -252,19 +273,19 @@ export default function AdminContactsPage() {
 
         {/* main table or grid */}
         {error && (
-          <div className="form-stitched" style={{ color: '#721c24', backgroundColor: '#f8d7da', padding: '2rem', textAlign: 'center' }}>
+          <div style={{ color: '#721c24', backgroundColor: '#f8d7da', padding: '2rem', textAlign: 'center', borderRadius: '6px', border: '1px solid #f5c6cb' }}>
             <p>{error}</p>
             <button onClick={fetchContacts} className="btn btn-primary" style={{ marginTop: '1rem' }}>Try Again</button>
           </div>
         )}
 
         {loading ? (
-          <div className="form-stitched" style={{ padding: '4rem', textAlign: 'center', backgroundColor: 'var(--white)' }}>
+          <div style={{ padding: '4rem', textAlign: 'center', backgroundColor: 'var(--white)', borderRadius: '6px', border: '1px solid var(--indigo-pale)', boxShadow: '0 2px 8px rgba(0,0,0,0.02)' }}>
             <div style={{ display: 'inline-block', width: '40px', height: '40px', border: '3px solid var(--indigo-pale)', borderTopColor: 'var(--indigo-deep)', borderRadius: '50%', animation: 'spin 1s linear infinite' }}></div>
             <p style={{ marginTop: '1rem', color: 'var(--charcoal-light)' }}>Connecting to Supabase Database...</p>
           </div>
         ) : filteredContacts.length === 0 ? (
-          <div className="form-stitched flex-center" style={{ minHeight: '300px', flexDirection: 'column', textAlign: 'center', backgroundColor: 'var(--white)' }}>
+          <div className="flex-center" style={{ minHeight: '300px', flexDirection: 'column', textAlign: 'center', backgroundColor: 'var(--white)', borderRadius: '6px', border: '1px solid var(--indigo-pale)', boxShadow: '0 2px 8px rgba(0,0,0,0.02)', padding: '2rem' }}>
             <div style={{ color: 'var(--indigo-pale)', marginBottom: '1.5rem' }}>
               <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M12 4v16M2 12h20" /></svg>
             </div>
@@ -280,13 +301,14 @@ export default function AdminContactsPage() {
             {filteredContacts.map((contact) => (
               <div 
                 key={contact.id} 
-                className="form-stitched"
                 style={{ 
                   backgroundColor: 'var(--white)',
                   padding: '1.5rem',
                   transition: 'all 0.2s ease',
                   cursor: 'pointer',
-                  border: selectedContact?.id === contact.id ? '2px solid var(--sage)' : '1px solid transparent'
+                  borderRadius: '6px',
+                  border: selectedContact?.id === contact.id ? '2px solid var(--sage)' : '1px solid var(--indigo-pale, #e2e8f0)',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.01)'
                 }}
                 onClick={() => setSelectedContact(selectedContact?.id === contact.id ? null : contact)}
               >
