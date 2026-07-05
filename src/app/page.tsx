@@ -331,6 +331,102 @@ export default function HomePage() {
       {/* ===== THREAD DIVIDER ===== */}
       <ThreadDivider />
 
+      {/* ===== TESTIMONIALS SECTION ===== */}
+      <section className="section section-cream">
+        <div className="container">
+          <div className="section-header fade-in">
+            <h2 className="section-title">
+              <div className="title-blocks" aria-hidden="true">
+                <span className="b-light"></span><span className="b-navy"></span>
+                <span className="b-mid"></span><span className="b-pale"></span>
+                <span className="b-empty"></span><span className="b-navy"></span>
+              </div>
+              What Our Partners Say
+              <div className="title-blocks title-blocks-right" aria-hidden="true">
+                <span className="b-light"></span><span className="b-navy"></span>
+                <span className="b-mid"></span><span className="b-pale"></span>
+                <span className="b-empty"></span><span className="b-navy"></span>
+              </div>
+            </h2>
+            <p className="section-subtitle">Real feedback from manufacturing clients and long-term textile mill partners.</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '3rem' }}>
+            {/* Testimonial 1 */}
+            <div style={{
+              backgroundColor: 'var(--white)',
+              padding: '2.5rem 2rem',
+              borderRadius: '8px',
+              border: '1px solid var(--indigo-pale)',
+              boxShadow: 'var(--shadow-soft)',
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+            }} className="testimonial-card">
+              <div style={{ position: 'absolute', top: '1rem', right: '1.5rem', fontSize: '4rem', color: 'var(--gold-faint)', fontFamily: 'serif', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>&ldquo;</div>
+              <p style={{ fontStyle: 'italic', color: 'var(--charcoal-light)', fontSize: '1rem', lineHeight: '1.75', position: 'relative', zIndex: 1, marginBottom: '1.5rem' }}>
+                "We've entrusted our weaving requirements to them for years because of their consistent quality, low rejection rates, and attention to detail. Every order is delivered with precision and reliability."
+              </p>
+              <div style={{ borderTop: '1px dashed var(--indigo-pale)', paddingTop: '1rem' }}>
+                <h4 style={{ color: 'var(--indigo-deep)', fontSize: '1rem', fontWeight: 700, margin: 0 }}>Textile Mill Client</h4>
+                <p style={{ color: 'var(--gold-thread)', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', margin: '4px 0 0' }}>Client Partner</p>
+              </div>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div style={{
+              backgroundColor: 'var(--white)',
+              padding: '2.5rem 2rem',
+              borderRadius: '8px',
+              border: '1px solid var(--indigo-pale)',
+              boxShadow: 'var(--shadow-soft)',
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+            }} className="testimonial-card">
+              <div style={{ position: 'absolute', top: '1rem', right: '1.5rem', fontSize: '4rem', color: 'var(--gold-faint)', fontFamily: 'serif', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>&ldquo;</div>
+              <p style={{ fontStyle: 'italic', color: 'var(--charcoal-light)', fontSize: '1rem', lineHeight: '1.75', position: 'relative', zIndex: 1, marginBottom: '1.5rem' }}>
+                "Their expertise in weaving is reflected in every fabric they produce. The minimum crimp variation, excellent quality standards, and dependable delivery make them one of our preferred weaving partners."
+              </p>
+              <div style={{ borderTop: '1px dashed var(--indigo-pale)', paddingTop: '1rem' }}>
+                <h4 style={{ color: 'var(--indigo-deep)', fontSize: '1rem', fontWeight: 700, margin: 0 }}>Long-Term Mill Partner</h4>
+                <p style={{ color: 'var(--gold-thread)', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', margin: '4px 0 0' }}>Enterprise Partner</p>
+              </div>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div style={{
+              backgroundColor: 'var(--white)',
+              padding: '2.5rem 2rem',
+              borderRadius: '8px',
+              border: '1px solid var(--indigo-pale)',
+              boxShadow: 'var(--shadow-soft)',
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+            }} className="testimonial-card">
+              <div style={{ position: 'absolute', top: '1rem', right: '1.5rem', fontSize: '4rem', color: 'var(--gold-faint)', fontFamily: 'serif', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>&ldquo;</div>
+              <p style={{ fontStyle: 'italic', color: 'var(--charcoal-light)', fontSize: '1rem', lineHeight: '1.75', position: 'relative', zIndex: 1, marginBottom: '1.5rem' }}>
+                "A reliable weaving partner with a strong commitment to quality. Their ability to maintain low rejection rates while consistently meeting our specifications has earned our trust over the years."
+              </p>
+              <div style={{ borderTop: '1px dashed var(--indigo-pale)', paddingTop: '1rem' }}>
+                <h4 style={{ color: 'var(--indigo-deep)', fontSize: '1rem', fontWeight: 700, margin: 0 }}>Manufacturing Client</h4>
+                <p style={{ color: 'var(--gold-thread)', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', margin: '4px 0 0' }}>B2B Weaving Client</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== THREAD DIVIDER ===== */}
+      <ThreadDivider />
+
       {/* ===== INFRASTRUCTURE STATS ===== */}
       <section className="section">
         <div className="container">

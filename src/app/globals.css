@@ -2506,3 +2506,9 @@ height: 100%;
   }
 }
 
+/* === TESTIMONIAL CARD HOVER === */
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(11, 36, 71, 0.08) !important;
+}
+
