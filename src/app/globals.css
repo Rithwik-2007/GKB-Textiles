@@ -755,6 +755,33 @@ height: 100%;
   border-color: rgba(255, 255, 255, 0.7);
 }
 
+/* Stitched WhatsApp Button */
+.btn-whatsapp {
+  background: #25D366;
+  color: var(--white);
+  border: none;
+}
+
+.btn-whatsapp::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  pointer-events: none;
+  transition: border-color var(--ease-base);
+}
+
+.btn-whatsapp:hover {
+  background: #20ba5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+}
+
+.btn-whatsapp:hover::before {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
 /* Stitched Outline Button */
 .btn-outline {
   background: transparent;
