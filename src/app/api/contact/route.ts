@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/db';
+import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
@@ -34,12 +35,76 @@ export async function POST(request: Request) {
       },
     });
 
-    // Send email notification (if RESEND_API_KEY is configured)
+    // Send email notification (either SMTP/Gmail or Resend)
     const resendApiKey = process.env.RESEND_API_KEY;
-    if (resendApiKey) {
+    const smtpUser = process.env.SMTP_USER;
+    const smtpPassword = process.env.SMTP_PASSWORD;
+    const toEmail = process.env.RESEND_TO_EMAIL || process.env.SMTP_TO || 'gkbtextiles@gmail.com';
+
+    const emailSubject = `New Website Inquiry: ${subject.trim()}`;
+    const emailHtml = `
+      <div style="font-family: Arial, sans-serif; padding: 25px; color: #333; max-width: 600px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+        <div style="border-bottom: 2px solid #1e3a8a; padding-bottom: 12px; margin-bottom: 20px;">
+          <h2 style="color: #1e3a8a; margin: 0; font-size: 22px;">New Contact Form Submission</h2>
+          <p style="color: #64748b; font-size: 13px; margin: 4px 0 0 0;">Received on ${new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
+        </div>
+        
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr>
+            <td style="padding: 10px 0; font-weight: bold; width: 130px; color: #475569; border-bottom: 1px solid #f1f5f9; vertical-align: top;">Name:</td>
+            <td style="padding: 10px 0; color: #0f172a; border-bottom: 1px solid #f1f5f9; vertical-align: top;">${fullName.trim()}</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 0; font-weight: bold; color: #475569; border-bottom: 1px solid #f1f5f9; vertical-align: top;">Email:</td>
+            <td style="padding: 10px 0; color: #0f172a; border-bottom: 1px solid #f1f5f9; vertical-align: top;"><a href="mailto:${email.trim()}" style="color: #2563eb; text-decoration: none;">${email.trim().toLowerCase()}</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 0; font-weight: bold; color: #475569; border-bottom: 1px solid #f1f5f9; vertical-align: top;">Phone:</td>
+            <td style="padding: 10px 0; color: #0f172a; border-bottom: 1px solid #f1f5f9; vertical-align: top;">${phone ? phone.trim() : '<em>Not provided</em>'}</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 0; font-weight: bold; color: #475569; border-bottom: 1px solid #f1f5f9; vertical-align: top;">Subject:</td>
+            <td style="padding: 10px 0; color: #0f172a; border-bottom: 1px solid #f1f5f9; vertical-align: top;">${subject.trim()}</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 0; font-weight: bold; color: #475569; vertical-align: top;">Message:</td>
+            <td style="padding: 10px 0; color: #0f172a; line-height: 1.6; white-space: pre-wrap; vertical-align: top;">${message.trim()}</td>
+          </tr>
+        </table>
+        
+        <div style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 15px; font-size: 11px; color: #94a3b8; text-align: center;">
+          <p style="margin: 0;">This is an automated notification from your GKB Textiles website.</p>
+          <p style="margin: 4px 0 0 0;">Manage your inquiries at <a href="https://gkb-textiles-mu.vercel.app/admin/contacts" style="color: #2563eb; text-decoration: none;">Admin Console</a>.</p>
+        </div>
+      </div>
+    `;
+
+    // 1. Try SMTP/Gmail if SMTP credentials are provided
+    if (smtpUser && smtpPassword) {
+      try {
+        const transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: smtpUser,
+            pass: smtpPassword,
+          },
+        });
+
+        await transporter.sendMail({
+          from: `"GKB Textiles Website" <${smtpUser}>`,
+          to: toEmail,
+          subject: emailSubject,
+          html: emailHtml,
+        });
+        console.log('SMTP email notification sent successfully.');
+      } catch (smtpError) {
+        console.error('Failed to send SMTP email notification:', smtpError);
+      }
+    }
+    // 2. Fallback to Resend API if RESEND_API_KEY is provided
+    else if (resendApiKey) {
       try {
         const fromEmail = process.env.RESEND_FROM_EMAIL || 'GKB Textiles Contact Form <onboarding@resend.dev>';
-        const toEmail = process.env.RESEND_TO_EMAIL || 'gkbtextiles@gmail.com';
         
         await fetch('https://api.resend.com/emails', {
           method: 'POST',
@@ -50,51 +115,18 @@ export async function POST(request: Request) {
           body: JSON.stringify({
             from: fromEmail,
             to: [toEmail],
-            subject: `New Website Inquiry: ${subject.trim()}`,
-            html: `
-              <div style="font-family: Arial, sans-serif; padding: 25px; color: #333; max-width: 600px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
-                <div style="border-bottom: 2px solid #1e3a8a; padding-bottom: 12px; margin-bottom: 20px;">
-                  <h2 style="color: #1e3a8a; margin: 0; font-size: 22px;">New Contact Form Submission</h2>
-                  <p style="color: #64748b; font-size: 13px; margin: 4px 0 0 0;">Received on ${new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
-                </div>
-                
-                <table style="width: 100%; border-collapse: collapse;">
-                  <tr>
-                    <td style="padding: 10px 0; font-weight: bold; width: 130px; color: #475569; border-bottom: 1px solid #f1f5f9; vertical-align: top;">Name:</td>
-                    <td style="padding: 10px 0; color: #0f172a; border-bottom: 1px solid #f1f5f9; vertical-align: top;">${fullName.trim()}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 10px 0; font-weight: bold; color: #475569; border-bottom: 1px solid #f1f5f9; vertical-align: top;">Email:</td>
-                    <td style="padding: 10px 0; color: #0f172a; border-bottom: 1px solid #f1f5f9; vertical-align: top;"><a href="mailto:${email.trim()}" style="color: #2563eb; text-decoration: none;">${email.trim().toLowerCase()}</a></td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 10px 0; font-weight: bold; color: #475569; border-bottom: 1px solid #f1f5f9; vertical-align: top;">Phone:</td>
-                    <td style="padding: 10px 0; color: #0f172a; border-bottom: 1px solid #f1f5f9; vertical-align: top;">${phone ? phone.trim() : '<em>Not provided</em>'}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 10px 0; font-weight: bold; color: #475569; border-bottom: 1px solid #f1f5f9; vertical-align: top;">Subject:</td>
-                    <td style="padding: 10px 0; color: #0f172a; border-bottom: 1px solid #f1f5f9; vertical-align: top;">${subject.trim()}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 10px 0; font-weight: bold; color: #475569; vertical-align: top;">Message:</td>
-                    <td style="padding: 10px 0; color: #0f172a; line-height: 1.6; white-space: pre-wrap; vertical-align: top;">${message.trim()}</td>
-                  </tr>
-                </table>
-                
-                <div style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 15px; font-size: 11px; color: #94a3b8; text-align: center;">
-                  <p style="margin: 0;">This is an automated notification from your GKB Textiles website.</p>
-                  <p style="margin: 4px 0 0 0;">Manage your inquiries at <a href="https://gkb-textiles-mu.vercel.app/admin/contacts" style="color: #2563eb; text-decoration: none;">Admin Console</a>.</p>
-                </div>
-              </div>
-            `,
+            subject: emailSubject,
+            html: emailHtml,
           }),
         });
-      } catch (emailError) {
-        console.error('Failed to send email notification:', emailError);
+        console.log('Resend email notification sent successfully.');
+      } catch (resendError) {
+        console.error('Failed to send Resend email notification:', resendError);
       }
     } else {
-      console.warn('RESEND_API_KEY is not defined. Skipping email notification.');
+      console.warn('Neither SMTP credentials (SMTP_USER/SMTP_PASSWORD) nor RESEND_API_KEY are configured. Skipping email notification.');
     }
+
 
     return NextResponse.json({ 
       success: true, 
