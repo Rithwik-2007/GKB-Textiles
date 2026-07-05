@@ -41,9 +41,17 @@ export async function POST(request: Request) {
     const smtpPassword = process.env.SMTP_PASSWORD;
     const toEmail = process.env.RESEND_TO_EMAIL || process.env.SMTP_TO || 'sanjaycode21@gmail.com';
 
+    // Dynamic public logo URL resolution
+    const host = request.headers.get('host') || 'gkb-textiles-mu.vercel.app';
+    const protocol = host.includes('localhost') ? 'http' : 'https';
+    const logoUrl = `${protocol}://${host}/images/logo-transparent.png`;
+
     const emailSubject = `New Website Inquiry: ${subject.trim()}`;
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; padding: 25px; color: #333; max-width: 600px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+        <div style="margin-bottom: 20px; text-align: left;">
+          <img src="${logoUrl}" alt="GKB Textiles Logo" width="160" style="display: block; border: 0; max-width: 160px; height: auto;" />
+        </div>
         <div style="border-bottom: 2px solid #1e3a8a; padding-bottom: 12px; margin-bottom: 20px;">
           <h2 style="color: #1e3a8a; margin: 0; font-size: 22px;">New Contact Form Submission</h2>
           <p style="color: #64748b; font-size: 13px; margin: 4px 0 0 0;">Received on ${new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
