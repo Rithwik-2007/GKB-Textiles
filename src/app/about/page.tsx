@@ -188,11 +188,23 @@ export default function AboutPage() {
             {/* Left: Founder Info */}
             <div className="split-text fade-in-left">
               <h2>Meet Our Founder</h2>
-              <div style={{ width: '120px', height: '120px', borderRadius: '50%', background: 'var(--indigo-pale)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--indigo-deep)' }}>
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
+              <div style={{ 
+                position: 'relative', 
+                width: '120px', 
+                height: '120px', 
+                borderRadius: '50%', 
+                overflow: 'hidden', 
+                border: '3px solid var(--indigo-pale, #cbd5e1)', 
+                boxShadow: 'var(--shadow-soft)', 
+                marginBottom: '1.5rem' 
+              }}>
+                <Image 
+                  src="/images/founder.jpg" 
+                  alt="Mr. G. Balakrishnan - Founder of GKB Textiles"
+                  fill
+                  sizes="120px"
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
               <h3>Mr. G. Balakrishnan</h3>
               <p className="accent-text">B.E. Mechanical Engineering | Founder &amp; Proprietor</p>
