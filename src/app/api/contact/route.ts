@@ -39,7 +39,7 @@ export async function POST(request: Request) {
     const resendApiKey = process.env.RESEND_API_KEY;
     const smtpUser = process.env.SMTP_USER;
     const smtpPassword = process.env.SMTP_PASSWORD;
-    const toEmail = process.env.RESEND_TO_EMAIL || process.env.SMTP_TO || 'gkbtextiles@gmail.com';
+    const toEmail = process.env.RESEND_TO_EMAIL || process.env.SMTP_TO || 'sanjaycode21@gmail.com';
 
     const emailSubject = `New Website Inquiry: ${subject.trim()}`;
     const emailHtml = `
