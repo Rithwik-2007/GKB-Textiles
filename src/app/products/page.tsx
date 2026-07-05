@@ -220,7 +220,7 @@ export default function ProductsPage() {
                   </tr>
                   <tr>
                     <td><strong>Available Widths</strong></td>
-                    <td>50 inches to 63 inches (Finished width)</td>
+                    <td>50 inches to 76 inches (Finished width)</td>
                   </tr>
                 </tbody>
               </table>
@@ -284,7 +284,7 @@ export default function ProductsPage() {
                   </tr>
                   <tr>
                     <td><strong>Available Widths</strong></td>
-                    <td>48 inches to 63 inches</td>
+                    <td>48 inches to 76 inches</td>
                   </tr>
                 </tbody>
               </table>
@@ -402,7 +402,7 @@ export default function ProductsPage() {
                   </tr>
                   <tr>
                     <td><strong>Available Widths</strong></td>
-                    <td>56 inches to 60 inches</td>
+                    <td>56 inches to 72 inches (Custom up to 76 inches)</td>
                   </tr>
                 </tbody>
               </table>
@@ -466,7 +466,7 @@ export default function ProductsPage() {
                   </tr>
                   <tr>
                     <td><strong>Available Widths</strong></td>
-                    <td>56 inches to 58 inches</td>
+                    <td>56 inches to 72 inches (Custom up to 76 inches)</td>
                   </tr>
                 </tbody>
               </table>
