@@ -252,9 +252,13 @@ export default function ContactForm() {
               alignItems: 'center', 
               justifyContent: 'center',
               height: '48px', 
-              padding: '0 12px',
+              padding: '0 16px',
               fontSize: '14px',
-              width: '100%'
+              width: '100%',
+              whiteSpace: 'nowrap',
+              border: 'none',
+              outline: 'none',
+              boxSizing: 'border-box'
             }}
           >
             {status === 'submitting' ? (
@@ -308,17 +312,20 @@ export default function ContactForm() {
               display: 'inline-flex', 
               alignItems: 'center', 
               justifyContent: 'center',
-              padding: '0 12px',
-              height: '48px',
+              height: '48px', 
+              padding: '0 16px',
               fontSize: '14px',
               width: '100%',
-              whiteSpace: 'nowrap'
+              whiteSpace: 'nowrap',
+              border: 'none',
+              outline: 'none',
+              boxSizing: 'border-box'
             }}
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
-              width="18" 
-              height="18" 
+              width="16" 
+              height="16" 
               viewBox="0 0 16 16" 
               fill="currentColor" 
               style={{ marginRight: '8px' }}
