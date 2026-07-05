@@ -87,7 +87,7 @@ export default function ContactForm() {
 
       // 2. Format the message for WhatsApp
       const whatsappNumber = '919080157410';
-      const text = `*New Website Inquiry*\n\n` +
+      const text = `*Website Inquiry*\n\n` +
                    `*Name:* ${formData.fullName.trim()}\n` +
                    `*Email:* ${formData.email.trim()}\n` +
                    `*Phone:* ${formData.phone ? formData.phone.trim() : 'N/A'}\n` +
