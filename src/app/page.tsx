@@ -63,7 +63,7 @@ export default function HomePage() {
         <div className="hero-overlay"></div>
 
         <div className="hero-content center">
-          <span className="hero-tagline fade-in">SINCE 2005</span>
+          <span className="hero-tagline fade-in">Manufacturers of Export Quality Grey Fabrics &bull; Since 2005</span>
           <h1 className="fade-in">Precisely Woven. <br />Reliably Delivered.</h1>
           <p className="hero-description fade-in">
             Premium Cotton Grey Fabrics manufactured using advanced Picanol Air Jet Loom technology, with capabilities spanning dobby fabrics, double cloth constructions, seersucker fabrics, and tailor-made fabric solutions.
