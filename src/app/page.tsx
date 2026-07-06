@@ -63,7 +63,22 @@ export default function HomePage() {
         <div className="hero-overlay"></div>
 
         <div className="hero-content center">
-          <span className="hero-tagline fade-in">Manufacturers of Export Quality Grey Fabrics &bull; Since 2005</span>
+          <div className="hero-tagline-group fade-in" style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
+            <span className="hero-tagline" style={{ marginBottom: 0 }}>
+              Manufacturers of Export Quality Grey Fabrics
+            </span>
+            <span style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: '0.8rem',
+              fontWeight: 600,
+              letterSpacing: '3px',
+              textTransform: 'uppercase',
+              color: 'var(--gold-thread)',
+              opacity: 0.85
+            }}>
+              Since 2005
+            </span>
+          </div>
           <h1 className="fade-in">Precisely Woven. <br />Reliably Delivered.</h1>
           <p className="hero-description fade-in">
             Premium Cotton Grey Fabrics manufactured using advanced Picanol Air Jet Loom technology, with capabilities spanning dobby fabrics, double cloth constructions, seersucker fabrics, and tailor-made fabric solutions.
