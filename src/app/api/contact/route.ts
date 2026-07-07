@@ -114,7 +114,7 @@ export async function POST(request: Request) {
       try {
         const fromEmail = process.env.RESEND_FROM_EMAIL || 'GKB Textiles Contact Form <onboarding@resend.dev>';
         
-        await fetch('https://api.resend.com/emails', {
+        const response = await fetch('https://api.resend.com/emails', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -127,7 +127,13 @@ export async function POST(request: Request) {
             html: emailHtml,
           }),
         });
-        console.log('Resend email notification sent successfully.');
+
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          console.error('Resend API error:', response.status, errorData);
+        } else {
+          console.log('Resend email notification sent successfully.');
+        }
       } catch (resendError) {
         console.error('Failed to send Resend email notification:', resendError);
       }
