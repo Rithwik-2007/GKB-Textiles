@@ -380,7 +380,7 @@ export default function HomePage() {
               justifyContent: 'space-between',
               transition: 'transform 0.3s ease, box-shadow 0.3s ease'
             }} className="testimonial-card">
-              <div style={{ position: 'absolute', top: '1rem', right: '1.5rem', fontSize: '4rem', color: 'var(--gold-faint)', fontFamily: 'serif', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>&ldquo;</div>
+             <div style={{ position: 'absolute', top: '1rem', left: '1.5rem', fontSize: '4rem', color: 'var(--gold-faint)', fontFamily: 'serif', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>&ldquo;</div>
               <p style={{ fontStyle: 'italic', color: 'var(--charcoal-light)', fontSize: '1rem', lineHeight: '1.75', position: 'relative', zIndex: 1, marginBottom: '1.5rem' }}>
                 "We've entrusted our weaving requirements to them for years because of their consistent quality, low rejection rates, and attention to detail. Every order is delivered with precision and reliability."
               </p>
@@ -403,7 +403,7 @@ export default function HomePage() {
               justifyContent: 'space-between',
               transition: 'transform 0.3s ease, box-shadow 0.3s ease'
             }} className="testimonial-card">
-              <div style={{ position: 'absolute', top: '1rem', right: '1.5rem', fontSize: '4rem', color: 'var(--gold-faint)', fontFamily: 'serif', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>&ldquo;</div>
+             <div style={{ position: 'absolute', top: '1rem', left: '1.5rem', fontSize: '4rem', color: 'var(--gold-faint)', fontFamily: 'serif', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>&ldquo;</div>
               <p style={{ fontStyle: 'italic', color: 'var(--charcoal-light)', fontSize: '1rem', lineHeight: '1.75', position: 'relative', zIndex: 1, marginBottom: '1.5rem' }}>
                 "Their expertise in weaving is reflected in every fabric they produce. The minimum crimp variation, excellent quality standards, and dependable delivery make them one of our preferred weaving partners."
               </p>
@@ -426,7 +426,7 @@ export default function HomePage() {
               justifyContent: 'space-between',
               transition: 'transform 0.3s ease, box-shadow 0.3s ease'
             }} className="testimonial-card">
-              <div style={{ position: 'absolute', top: '1rem', right: '1.5rem', fontSize: '4rem', color: 'var(--gold-faint)', fontFamily: 'serif', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>&ldquo;</div>
+             <div style={{ position: 'absolute', top: '1rem', left: '1.5rem', fontSize: '4rem', color: 'var(--gold-faint)', fontFamily: 'serif', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>&ldquo;</div>
               <p style={{ fontStyle: 'italic', color: 'var(--charcoal-light)', fontSize: '1rem', lineHeight: '1.75', position: 'relative', zIndex: 1, marginBottom: '1.5rem' }}>
                 "A reliable weaving partner with a strong commitment to quality. Their ability to maintain low rejection rates while consistently meeting our specifications has earned our trust over the years."
               </p>
